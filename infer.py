@@ -31,7 +31,7 @@ def load_eval_model(device):
         in_channels=3,                  
         classes=3     
     )
-    checkpoint = torch.load('checkpoint/unet_model.pth',weights_only=True, map_location=device)
+    checkpoint = torch.load('unet_model.pth',weights_only=True, map_location=device)
     # Fix "module."
     state_dict = checkpoint["model"]
     new_state_dict = {k.replace("module.", ""): v for k, v in state_dict.items()}
